@@ -12,9 +12,9 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
 * [Tech Stack](#tech-stack)
 * [Useful Resources](#useful-resources)
 * [Project MVP Features](#project-mvp-features)
-    * [Overview](#overview)
     * [Authorization](#authorization)
     * [Dashboard](#dashboard)
+    * [Lessons](#lessons)
     * [Reviews](#reviews)
     * [Vocabulary](#vocabulary)
     * [Account Settings](#account-settings)
@@ -60,43 +60,50 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
 
 A list of the features needed for a minimum viable product across the enitre project: desktop frontend, mobile native frontend, and the backend server.
 
-### Overview
-
-* On first signup, a new user is crated with a level of 1, the first set of lessons, and email and password
-* Viewing lessons adds them to the reviews array with a level of 1 "New" and are immediately avaiable for review
-* Upon providing the correct answer in review for both the meaning and rading of the item, the item is ranked up. If any item is answered incorrectly, it is ranked down unless it is at the bottom rank already
-* When an item has been reviewed, it is assing a next review date using a spaced repitition formula depending on the new rank of the item
-* Going through all reviews or clicking the dashboard button submits answered vocab items
-
 ### Authorization
 
 * Auth functionality
-    * Sign up
-    * Sign in
-    * Sign out
-    * Password reset
+    * Sign up:
+         - On first signup, a new user is crated with a level of 1, the first set of lessons, and email and hashed password
+    * Sign in:
+       * On sucessful signup / signin redirects to dashboard and changes nav items
+    * Sign out:
+       * Signing out redirects to main landing page, changing nav items.
+    * Password reset:
+       * If a user has forgotten their password, they can click the reset password button. This will send a request to the server which will send an email to the user with a pin needed to reset the password. If the correct pin, email, and password are provided, the password is reset and the user is redirected to login.
 
 ### Dashboard
 
 * Lessons button with count
 * Reviews button with count
-* Next available review date and time
+* Displays next available review date and time
 * Mastery progress bar for current level
+
+### Lessons
+
+* Lessons display Hebrew, Hebrew with Nikkud, pronounciation guide, and meaining. They may be a single word or a phrase.
+* Viewing lessons adds them to the reviews array with a level of 1 "New" and are immediately avaiable for review
+* Forward and backward navigation of lessons
+* New lessons are unlocked when the current set has 80% of items at master rank 3 or higher
+* New lessons are added to any existing lessons list
 
 ### Reviews
 
 * Randomized available reviews
-* Direct input for answering
-* User must provide correct meaning and reading for each vocab item for it to rank up
+* Direct input for answering questions
 * Hebrew "keyboard" for inputing reading
 * Detects language, enforces correct language
 * Provides feedback on correct or incorrect answer given and shows correct answer
+* User must provide correct meaning and reading for each vocab item for it to rank up
+* If any item is answered incorrectly, it is ranked down unless it is at the bottom rank already
+* When an item has been reviewed, it is assigned a next review date using a spaced repitition formula depending on the new rank of the item
+* Going through all reviews or clicking the dashboard button submits answered vocab items
 
 ### Vocabulary
 
 * Vocab viewed by level
-* Displays only vocab unklocked / viewed by user
-* Displays Hebrew, with nikkud, meaining, pronunciation, level, mastery rank
+* Displays only vocab unklocked / reviewed by user
+* Displays Hebrew, with nikkud, meaining, pronunciation, level, and mastery rank
 
 ### Account Settings
 
