@@ -4,12 +4,15 @@
 
 The purpose of this app is to help those learning the Hebrew language. It uses direct input for review questions and impliments spaced repitition.
 
+## View the live website here: [Rabbi-Rabbit](https://www.rabbi-rabbit.com/)
+
 ## Quicklinks
 
-* [Live Site: Rabbi-Rabbit](https://www.rabbi-rabbit.com/)
-* [Repos](#repos)
+* [Related Repos](#related-repos)
+* [Tech Stack](#tech-stack)
 * [Useful Resources](#useful-resources)
 * [Project MVP Features](#project-mvp-features)
+    * [Overview](#overview)
     * [Authorization](#authorization)
     * [Dashboard](#dashboard)
     * [Reviews](#reviews)
@@ -20,13 +23,26 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
     * [Audio Clips](#audio-clips)
     * [Monthly Subscription](#monthly-subscription)
 
-## Repos
+
+## Related Repos
 
 [Native Mobile App](https://github.com/Rabbi-Rabbit/react-native-mobile-app)
 
 [Desktop Web App](https://github.com/Rabbi-Rabbit/frontend-react-desktop)
 
 [Mongo Database and Server](https://github.com/Rabbi-Rabbit/mongo-db-node-server)
+
+## Tech Stack
+
+- React
+
+- Javascript
+
+- CSS
+
+- Validation with Yup
+
+- Tests with react testing library (comming soon)
 
 ## Useful resources
 
@@ -44,14 +60,21 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
 
 A list of the features needed for a minimum viable product across the enitre project: desktop frontend, mobile native frontend, and the backend server.
 
+### Overview
+
+* On first signup, a new user is crated with a level of 1, the first set of lessons, and email and password
+* Viewing lessons adds them to the reviews array with a level of 1 "New" and are immediately avaiable for review
+* Upon providing the correct answer in review for both the meaning and rading of the item, the item is ranked up. If any item is answered incorrectly, it is ranked down unless it is at the bottom rank already
+* When an item has been reviewed, it is assing a next review date using a spaced repitition formula depending on the new rank of the item
+* Going through all reviews or clicking the dashboard button submits answered vocab items
+
 ### Authorization
 
 * Auth functionality
     * Sign up
     * Sign in
     * Sign out
-    * Passowrd reset
-* User Profile CRUD operations
+    * Password reset
 
 ### Dashboard
 
