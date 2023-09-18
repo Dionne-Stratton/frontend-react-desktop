@@ -6,6 +6,7 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
 
 ## Quicklinks
 
+* [Live Site: Rabbi-Rabbit](https://www.rabbi-rabbit.com/)
 * [Repos](#repos)
 * [Useful Resources](#useful-resources)
 * [Project MVP Features](#project-mvp-features)
