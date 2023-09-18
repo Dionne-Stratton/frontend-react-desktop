@@ -21,7 +21,7 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
 
 ## Repos
 
-[Native Mobile App]([https://github.com/Grow-Work/frontend-react-native](https://github.com/Rabbi-Rabbit/react-native-mobile-app))
+[Native Mobile App]([https://github.com/Rabbi-Rabbit/react-native-mobile-app)
 
 [Desktop Web App](https://github.com/Rabbi-Rabbit/frontend-react-desktop)
 
