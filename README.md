@@ -9,7 +9,7 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
 * [Repos](#repos)
 * [Useful Resources](#useful-resources)
 * [Project MVP Features](#project-mvp-features)
-    * [Authorization](#auth)
+    * [Authorization](#authorization)
     * [Dashboard](#dashboard)
     * [Reviews](#reviews)
     * [Vocabulary](#vocabulary)
@@ -17,11 +17,11 @@ The purpose of this app is to help those learning the Hebrew language. It uses d
     * [Danger Zone](#danger-zone)
 * [Features for Future Release](#features-for-future-release)
     * [Audio Clips](#audio-clips)
-    * [Monthly Subscription] (#monthly-subscription)
+    * [Monthly Subscription](#monthly-subscription)
 
 ## Repos
 
-[Native Mobile App]([https://github.com/Rabbi-Rabbit/react-native-mobile-app)
+[Native Mobile App](https://github.com/Rabbi-Rabbit/react-native-mobile-app)
 
 [Desktop Web App](https://github.com/Rabbi-Rabbit/frontend-react-desktop)
 
