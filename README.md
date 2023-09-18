@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Rabbi-Rabbit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### An app designed to supplement Hebrew language learning by providing a simple yet engaging way to review Hebrew vocabulary.
 
-## Available Scripts
+The purpose of this app is to help those learning the Hebrew language. It uses direct input for review questions and impliments spaced repitition.
 
-In the project directory, you can run:
+## Quicklinks
 
-### `npm start`
+* [Repos](#repos)
+* [Useful Resources](#useful-resources)
+* [Project MVP Features](#project-mvp-features)
+    * [Authorization](#auth)
+    * [Dashboard](#dashboard)
+    * [Reviews](#reviews)
+    * [Vocabulary](#vocabulary)
+    * [Account Settings](#account-settings)
+    * [Danger Zone](#danger-zone)
+* [Features for Future Release](#features-for-future-release)
+    * [Audio Clips](#audio-clips)
+    * [Monthly Subscription] (#monthly-subscription)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Repos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Native Mobile App]([https://github.com/Grow-Work/frontend-react-native](https://github.com/Rabbi-Rabbit/react-native-mobile-app))
 
-### `npm test`
+[Desktop Web App](https://github.com/Rabbi-Rabbit/frontend-react-desktop)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Mongo Database and Server](https://github.com/Rabbi-Rabbit/mongo-db-node-server)
 
-### `npm run build`
+## Useful resources
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Contribution Guidelines](https://github.com/Grow-Work/.github/blob/main/GENERAL-CONTRIBUTING.md)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[About Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[MongoDB Course](https://university.mongodb.com/learning_paths/developer)
 
-### `npm run eject`
+[React Native Docs](https://reactnative.dev/docs/getting-started)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[React Tutorial](https://reactjs.org/tutorial/tutorial.html)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project MVP Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+A list of the features needed for a minimum viable product across the enitre project: desktop frontend, mobile native frontend, and the backend server.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Authorization
 
-## Learn More
+* Auth functionality
+    * Sign up
+    * Sign in
+    * Sign out
+    * Passowrd reset
+* User Profile CRUD operations
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Dashboard
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Lessons button with count
+* Reviews button with count
+* Next available review date and time
+* Mastery progress bar for current level
 
-### Code Splitting
+### Reviews
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Randomized available reviews
+* Direct input for answering
+* User must provide correct meaning and reading for each vocab item for it to rank up
+* Hebrew "keyboard" for inputing reading
+* Detects language, enforces correct language
+* Provides feedback on correct or incorrect answer given and shows correct answer
 
-### Analyzing the Bundle Size
+### Vocabulary
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Vocab viewed by level
+* Displays only vocab unklocked / viewed by user
+* Displays Hebrew, with nikkud, meaining, pronunciation, level, mastery rank
 
-### Making a Progressive Web App
+### Account Settings
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* Checkbox to display nikkud on reviews
+* Checkbox for displaying pronunciation on reviews
+* Settings are saved to local storage
 
-### Advanced Configuration
+### Danger Zone
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Reset Learning Progress
+* Delete Account
 
-### Deployment
+## Features for future release
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+A list of the features planned for future release across the enitre project: desktop frontend, mobile native frontend, and the backend server.
 
-### `npm run build` fails to minify
+### Audio Clips
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Listen to the vocab spoken by a native speaker.
+
+### Monthly Subscription
+
+* Charge a monthly fee for access to app beyond the first three levels.
+
+
+## If you have ideas for more featues please reach out!
+
+
+
+
+
