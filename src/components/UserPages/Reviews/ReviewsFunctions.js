@@ -197,6 +197,7 @@ export function splitReviews(availableReviews) {
       gender: review.gender,
       next_review: review.next_review,
       questionType: "meaning",
+      lesson: review.lesson,
     });
     readingReviews.push({
       //push an object with the following properties to the reading reviews array

@@ -139,16 +139,21 @@ export default function Reviews(props) {
       setShowNav(true);
       return;
     }
+    console.log("vocab:", vocab);
+    console.log("userVocab:", userVocab);
     let allVocab = await getNextWord(); //get the next word
-    let lessonFiltered = vocab.filter(
+    let lessonFiltered = userVocab.filter(
       //filter the all vocab array to only include words from the current lesson
-      (word) => word.lesson_number === user.available_lesson
+      (word) => word.lesson === user.available_lesson
     );
     let rankFiltered = lessonFiltered.filter((word) => word.rank > 2); //filter the lesson filtered array to only include words with a rank greater than 2
     let lessonToPut;
     let lessonsToPut;
+    console.log("rankFiltered:", rankFiltered);
+    console.log("lessonFiltered:", lessonFiltered);
     //if the number of words with a rank greater than 2 is greater than or equal to 80% of the number of words in the current lesson then set the lesson to put to the current lesson number plus 1 and set the lessons to put to the vocab filtered to only include words from the lesson to put number
     if (rankFiltered.length / lessonFiltered.length >= 0.8) {
+      console.log("here");
       lessonToPut = user.available_lesson + 1;
       lessonsToPut = vocab.filter((word) => word.lesson === lessonToPut);
       lessonsToPut = [...lessonsToPut, ...user.user_lessons];
