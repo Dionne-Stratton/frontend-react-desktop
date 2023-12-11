@@ -16,7 +16,7 @@ const Dashboard = (props) => {
         reviewsProgress(); // get the reviews progress
       }
     } //eslint-disable-next-line
-  }, [user, nextAvailableReview]);
+  }, [user, nextAvailableReview, progress]);
 
   function reviewsProgress() {
     //filter out words that are not in the current lesson
@@ -123,7 +123,7 @@ const Dashboard = (props) => {
                 // set the width of the progress bar to the progress state times 100 to get a percentage
                 style={{ width: `${progress * 100}%` }}
               >
-                {Math.floor(progress * 100)}%
+                {/* {Math.floor(progress * 100)}% */}
               </div>
             </div>
           </div>
