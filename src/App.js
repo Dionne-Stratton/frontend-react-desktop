@@ -19,6 +19,7 @@ import Dashboard from "./components/UserPages/Dashboard";
 import Vocabulary from "./components/UserPages/Vocabulary";
 import Study from "./components/UserPages/Study";
 import Library from "./components/UserPages/Library";
+import AddNewText from "./components/UserPages/AddNewText";
 import Account from "./components/UserPages/AccountPages/Account";
 import Lessons from "./components/UserPages/Lessons";
 import Reviews from "./components/UserPages/Reviews/ReviewsPage";
@@ -164,6 +165,7 @@ function App() {
         </Route>
         <Route path="/study" component={Study} />
         <Route path="/library" component={Library} />
+        <Route path="/add-new-text" component={AddNewText} />
         <Route path="/account">
           <Account
             user={user}
