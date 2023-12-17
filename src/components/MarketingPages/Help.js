@@ -1,7 +1,7 @@
 // import React, { useState } from "react";
 import React from "react";
 
-const Contact = () => {
+const Help = () => {
   // const initialFormState = {
   //   user_name: "",
   //   email: "",
@@ -28,18 +28,6 @@ const Contact = () => {
 
   return (
     <div className="main-page">
-      <h2>Contact Us</h2>
-      <p>We'd love to hear from you!</p>
-      {/* <p>
-        If you have any questions, feedback, or inquiries, please fill out the
-        form below.
-      </p> */}
-      <p>
-        If you have any questions, feedback, or inquiries, please drop us a line
-        at dionnestratton@gmail.com.
-      </p>
-      <p> We'll get back to you as soon as possible.</p>
-      <p>But first, please review the frequently asked questions below.</p>
       <h3>FAQs</h3>
       <h4>What is the purpose of this site?</h4>
       <p>
@@ -70,6 +58,18 @@ const Contact = () => {
         more lessons and the page will populate with more vocab words as you go
         through the lessons and words are added to your review que.
       </p>
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you!</p>
+      {/* <p>
+        If you have any questions, feedback, or inquiries, please fill out the
+        form below.
+      </p> */}
+      <p>
+        If you have any questions, feedback, or inquiries, please drop us a line
+        at dionnestratton@gmail.com.
+      </p>
+      <p> We'll get back to you as soon as possible.</p>
+      <p>But first, please review the frequently asked questions below.</p>
       {/* <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">User Name: </label>
@@ -120,4 +120,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Help;
