@@ -29,6 +29,8 @@ export default function Vocabulary(props) {
     setSelectedLesson(e.target.value);
   };
 
+  console.log(vocabLessons);
+
   return (
     <div className="main-page">
       <select

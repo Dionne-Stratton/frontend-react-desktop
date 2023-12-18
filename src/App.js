@@ -165,7 +165,10 @@ function App() {
         </Route>
         <Route path="/study" component={Study} />
         <Route path="/library" component={Library} />
-        <Route path="/add-new-text" component={AddNewText} />
+        {/* <Route path="/add-new-text" component={AddNewText} /> */}
+        <Route path="/add-new-text">
+          <AddNewText vocab={vocab} user={user} combineArrays={combineArrays} />
+        </Route>
         <Route path="/account">
           <Account
             user={user}
