@@ -29,6 +29,8 @@ export default function Vocabulary(props) {
     setSelectedLesson(e.target.value);
   };
 
+  console.log(vocabLessons);
+
   return (
     <div className="main-page">
       <select
@@ -62,7 +64,7 @@ export default function Vocabulary(props) {
                 <p>
                   {vocabItem.hebrew_with_nikkud //if the word has nikkud, display it otherwise display the word without nikkud
                     ? vocabItem.hebrew_with_nikkud
-                    : vocabItem.hebrew}
+                    : vocabItem.hebrew_without_nikkud}
                 </p>
                 {vocabItem.rank === 0 && <p>New!</p>}
                 {/* if the rank is 0 display new */}

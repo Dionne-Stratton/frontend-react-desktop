@@ -14,6 +14,7 @@ import {
   checkAnswer,
   splitReviews,
   checkPair,
+  setsOfFive,
 } from "./ReviewsFunctions";
 
 export default function Reviews(props) {
@@ -41,6 +42,7 @@ export default function Reviews(props) {
   const withNikkud = localStorage.getItem("withNikkud");
   const withPronunciation = localStorage.getItem("withPronunciation");
   const [reviewsLeft, setReviewsLeft] = useState(0);
+  const [setsLeft, setSetsLeft] = useState(0);
 
   useEffect(() => {
     setShowNav(false); // disable the nav bar while on the review page
@@ -51,18 +53,26 @@ export default function Reviews(props) {
       if (availableReviews.length > 0) {
         setReviewsLeft(availableReviews.length);
         //if there are available reviews
-        let userVocab = combineArrays(availableReviews, vocab); //combine the user vocab and the vocab into one array
-        userVocab = splitReviews(userVocab); //split the reviews into meaning and reading reviews
-        randomizeArray(userVocab); //randomize the order of the reviews
-        console.log("userVocab:", userVocab);
-        setUserVocab(userVocab); //set the user vocab to the randomized array
+        let useVocab = combineArrays(availableReviews, vocab); //combine the user vocab and the vocab into one array
+        let userVocab = [];
+        let sets = setsOfFive(useVocab); //split the reviews into sets of five
+        sets.forEach((set) => {
+          //for each set of five reviews call the splitReviews function
+          let split = splitReviews(set); //split the reviews into meaning and reading reviews
+          //randomize the order of the reviews
+          randomizeArray(split);
+          randomizeArray(split);
+          userVocab = [...userVocab, ...split]; //add the split reviews to the user vocab array
+        });
+        setUserVocab(userVocab); //set the user voscab to the reviews set array
+        setSetsLeft(sets.length);
         setCurrentWord(userVocab[0]); //set the current word to the first word in the array
         setQuestionType(userVocab[0].questionType); //set the meaning type to false
         let correctMeaningArray = userVocab[0].meaning //create an array of the correct meanings of the word by splitting the string of meanings and removing any non-alphabetical characters and converting to lowercase
           .split(", ")
           .map((word) => word.toLowerCase().replace(regexEnglishPattern, ""));
         setCorrectMeaning(correctMeaningArray);
-        let correctHebrewReadingArray = userVocab[0].hebrew //create an array of the correct readings of the word by splitting the string of readings and removing any non-alphabetical characters and converting to lowercase
+        let correctHebrewReadingArray = userVocab[0].hebrew_without_nikkud //create an array of the correct readings of the word by splitting the string of readings and removing any non-alphabetical characters and converting to lowercase
           .split(", ")
           .map((word) => word.replace(regexHebrewPattern, ""));
         setCorrectHebrewReading(correctHebrewReadingArray);
@@ -78,7 +88,7 @@ export default function Reviews(props) {
         .split(", ")
         .map((word) => word.toLowerCase().replace(regexEnglishPattern, ""));
       setCorrectMeaning(correctAnswerArray);
-      let correctHebrewReadingArray = userVocab[0].hebrew //create an array of the correct readings of the word by splitting the string of readings and removing any non-alphabetical characters and converting to lowercase
+      let correctHebrewReadingArray = userVocab[0].hebrew_without_nikkud //create an array of the correct readings of the word by splitting the string of readings and removing any non-alphabetical characters and converting to lowercase
         .split(", ")
         .map((word) => word.replace(regexHebrewPattern, ""));
       setCorrectHebrewReading(correctHebrewReadingArray);
@@ -139,16 +149,21 @@ export default function Reviews(props) {
       setShowNav(true);
       return;
     }
+    console.log("vocab:", vocab);
+    console.log("userVocab:", userVocab);
     let allVocab = await getNextWord(); //get the next word
-    let lessonFiltered = vocab.filter(
+    let lessonFiltered = userVocab.filter(
       //filter the all vocab array to only include words from the current lesson
-      (word) => word.lesson_number === user.available_lesson
+      (word) => word.lesson === user.available_lesson
     );
     let rankFiltered = lessonFiltered.filter((word) => word.rank > 2); //filter the lesson filtered array to only include words with a rank greater than 2
     let lessonToPut;
     let lessonsToPut;
+    console.log("rankFiltered:", rankFiltered);
+    console.log("lessonFiltered:", lessonFiltered);
     //if the number of words with a rank greater than 2 is greater than or equal to 80% of the number of words in the current lesson then set the lesson to put to the current lesson number plus 1 and set the lessons to put to the vocab filtered to only include words from the lesson to put number
     if (rankFiltered.length / lessonFiltered.length >= 0.8) {
+      console.log("here");
       lessonToPut = user.available_lesson + 1;
       lessonsToPut = vocab.filter((word) => word.lesson === lessonToPut);
       lessonsToPut = [...lessonsToPut, ...user.user_lessons];
@@ -198,7 +213,9 @@ export default function Reviews(props) {
         <p className="no-header-dashboard-button" onClick={submitVocab}>
           Dashboard
         </p>
-        <p className="toggle">Reviews Left: {reviewsLeft}</p>
+        <p className="toggle">
+          Reviews Left: {reviewsLeft} / Sets Left: {setsLeft}
+        </p>
       </div>
       {userVocab.length > 0 ? ( //if there is user vocab
         <div className="review-box">
@@ -206,7 +223,7 @@ export default function Reviews(props) {
             {questionType === "meaning" ? (
               <div className="review-meaning">
                 <h2>
-                  {currentWord.hebrew}
+                  {currentWord.hebrew_without_nikkud}
                   {withNikkud === "true" && currentWord.hebrew_with_nikkud
                     ? ` /${currentWord.hebrew_with_nikkud}`
                     : ""}
@@ -291,7 +308,7 @@ export default function Reviews(props) {
           ) : message && questionType === "reading" ? (
             <div className="correctAnswer">
               <h3>
-                {currentWord.reading} / {currentWord.hebrew}
+                {currentWord.reading} / {currentWord.hebrew_without_nikkud}
               </h3>
             </div>
           ) : null}

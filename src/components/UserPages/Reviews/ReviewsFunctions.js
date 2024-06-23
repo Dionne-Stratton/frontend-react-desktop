@@ -180,6 +180,15 @@ export function checkAnswer(
   }
 }
 
+export function setsOfFive(reviews) {
+  let sets = [];
+  let temparray;
+  for (let i = 0; i < reviews.length; i += 5) {
+    temparray = reviews.slice(i, i + 5);
+    sets.push(temparray);
+  }
+  return sets;
+}
 //function to take the available reviews and return a new array with both the meaning and reading reviews as separate objects
 export function splitReviews(availableReviews) {
   let meaningReviews = [];
@@ -189,7 +198,7 @@ export function splitReviews(availableReviews) {
     meaningReviews.push({
       //push an object with the following properties to the meaning reviews array
       _id: review._id,
-      hebrew: review.hebrew,
+      hebrew_without_nikkud: review.hebrew_without_nikkud,
       hebrew_with_nikkud: review.hebrew_with_nikkud,
       reading: review.reading,
       meaning: review.meaning,
@@ -197,11 +206,12 @@ export function splitReviews(availableReviews) {
       gender: review.gender,
       next_review: review.next_review,
       questionType: "meaning",
+      lesson: review.lesson,
     });
     readingReviews.push({
       //push an object with the following properties to the reading reviews array
       _id: review._id,
-      hebrew: review.hebrew,
+      hebrew_without_nikkud: review.hebrew_without_nikkud,
       hebrew_with_nikkud: review.hebrew_with_nikkud,
       reading: review.reading,
       meaning: review.meaning,

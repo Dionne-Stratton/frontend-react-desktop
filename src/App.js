@@ -10,13 +10,16 @@ import ResetPasswordPage from "./components/Auth/ResetPasswordPage";
 import HeaderNav from "./components/MarketingPages/HeaderNav";
 import LandingPage from "./components/MarketingPages/LandingPage";
 import About from "./components/MarketingPages/About";
+import Features from "./components/MarketingPages/Features";
 import Pricing from "./components/MarketingPages/Pricing";
-import Contact from "./components/MarketingPages/Contact";
+import Help from "./components/MarketingPages/Help";
 //User Pages
 import AuthorizedNav from "./components/UserPages/AuthorizedNav";
 import Dashboard from "./components/UserPages/Dashboard";
 import Vocabulary from "./components/UserPages/Vocabulary";
 import Study from "./components/UserPages/Study";
+import Library from "./components/UserPages/Library";
+import AddNewText from "./components/UserPages/AddNewText";
 import Account from "./components/UserPages/AccountPages/Account";
 import Lessons from "./components/UserPages/Lessons";
 import Reviews from "./components/UserPages/Reviews/ReviewsPage";
@@ -137,8 +140,9 @@ function App() {
           {landingPage}
         </Route>
         <Route path="/about" component={About} />
+        <Route path="/features" component={Features} />
         <Route path="/pricing" component={Pricing} />
-        <Route path="/contact" component={Contact} />
+        <Route path="/help" component={Help} />
         {/* Auth Pages */}
         <Route path="/auth/:auth">
           <AuthForm setAuth={setAuth} lesson1={lesson1} />
@@ -160,6 +164,11 @@ function App() {
           />
         </Route>
         <Route path="/study" component={Study} />
+        <Route path="/library" component={Library} />
+        {/* <Route path="/add-new-text" component={AddNewText} /> */}
+        <Route path="/add-new-text">
+          <AddNewText vocab={vocab} user={user} combineArrays={combineArrays} />
+        </Route>
         <Route path="/account">
           <Account
             user={user}

@@ -16,7 +16,7 @@ const Dashboard = (props) => {
         reviewsProgress(); // get the reviews progress
       }
     } //eslint-disable-next-line
-  }, [user, nextAvailableReview]);
+  }, [user, nextAvailableReview, progress]);
 
   function reviewsProgress() {
     //filter out words that are not in the current lesson

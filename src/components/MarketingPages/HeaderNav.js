@@ -33,11 +33,14 @@ const HeaderNav = () => {
           <NavLink className="main-nav" activeClassName="active" to="/about">
             About
           </NavLink>
+          <NavLink className="main-nav" activeClassName="active" to="/features">
+            Features
+          </NavLink>
           <NavLink className="main-nav" activeClassName="active" to="/pricing">
             Pricing
           </NavLink>
-          <NavLink className="main-nav" activeClassName="active" to="/contact">
-            Contact
+          <NavLink className="main-nav" activeClassName="active" to="/help">
+            Help
           </NavLink>
         </nav>
       </header>
