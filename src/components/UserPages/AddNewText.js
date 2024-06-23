@@ -107,21 +107,46 @@ export default function AddNewText(props) {
     //loop through the word array and check if each word is in the vocab array on the meaning key
     //if the word is in the vocab array, replace the word with the vocab word from the hebrew key
     //return the new string
+    let shalomOptions = ["hello", "Hello", "hi", "Hi", "peace", "Peace"];
+    let selfOptions = [
+      "I",
+      "i'm",
+      "me",
+      "my",
+      "I'm",
+      "I'll",
+      "I'd",
+      "I've",
+      "i",
+      "i've",
+      "i'd",
+      "i'll",
+    ];
     let newString = "";
     for (let i = 0; i < wordArray.length; i++) {
       let word = wordArray[i];
+      console.log(word);
       //check for "hello"
-      if (word.trim() === "hello") {
-        newString += "שלומ";
+      if (shalomOptions.some((option) => option === word.trim())) {
+        newString += " שלומ ";
+      }
+      if (selfOptions.some((option) => option === word.trim())) {
+        newString += " אני ";
       }
       let newWord = word;
+      let hebrewWord = "";
       for (let j = 0; j < vocab.length; j++) {
+        let vocabWord = vocab[j].hebrew;
+        let vocabGender = vocab[j].gender ? ` (${vocab[j].gender[0]})` : "";
         if (word.trim().toLowerCase() === vocab[j].meaning.toLowerCase()) {
-          newWord = " " + vocab[j].hebrew;
+          hebrewWord = hebrewWord + " " + vocabWord + vocabGender;
+          newWord = hebrewWord;
+          //   newWord = " " + vocabWord;
         }
       }
       //if the word is 'hello' skip
-      if (word.trim() === "hello") {
+      if (shalomOptions.some((option) => option === word.trim())) {
+      } else if (selfOptions.some((option) => option === word.trim())) {
       } else {
         newString += newWord;
       }
@@ -133,9 +158,10 @@ export default function AddNewText(props) {
     <div className="main-page">
       <form>
         <label htmlFor="text">Text</label>
-        <input
-          type="textbox"
+        <textarea
           name="text"
+          rows={15}
+          cols={70}
           value={form.text}
           onChange={handleChange}
         />

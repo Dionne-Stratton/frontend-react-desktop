@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 export default function Settings(props) {
   const [withNikkud, setWithNikkud] = useState(
-    localStorage.getItem("withNikkud")
+    localStorage.getItem("withNikkud") || true
   );
   const [withPronunciation, setWithPronunciation] = useState(
     localStorage.getItem("withPronunciation")

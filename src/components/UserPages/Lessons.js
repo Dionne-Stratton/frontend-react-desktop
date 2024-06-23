@@ -105,7 +105,7 @@ export default function Lessons(props) {
             <div className="arrow disabled">{previousArrow}</div>
           )}
           <div className="lesson-text">
-            <h2>{currentWord.hebrew}</h2>
+            <h2>{currentWord.hebrew_without_nikkud}</h2>
             <h4>{currentWord.hebrew_with_nikkud}</h4>
             <h4>"{currentWord.reading}"</h4>
             <h4>
