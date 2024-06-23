@@ -136,7 +136,7 @@ export default function AddNewText(props) {
       let newWord = word;
       let hebrewWord = "";
       for (let j = 0; j < vocab.length; j++) {
-        let vocabWord = vocab[j].hebrew;
+        let vocabWord = vocab[j].hebrew_without_nikkud;
         let vocabGender = vocab[j].gender ? ` (${vocab[j].gender[0]})` : "";
         if (word.trim().toLowerCase() === vocab[j].meaning.toLowerCase()) {
           hebrewWord = hebrewWord + " " + vocabWord + vocabGender;
